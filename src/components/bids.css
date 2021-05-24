@@ -1,0 +1,14 @@
+.bid{
+
+    color: white;
+    width: 100px;
+    background-color: gray;
+    height: 25px;
+    margin: 10px auto;
+    border-radius: 2px; 
+
+}
+
+.bid text{
+    padding: 10px;
+}

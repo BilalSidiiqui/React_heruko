@@ -1,0 +1,23 @@
+
+.Main{
+min-height: 100vh;
+
+align-items: center;
+justify-content: center;
+background-color: #fff;
+
+
+}
+.Outer{
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 100px 0;
+  
+}
+.inner-container{
+    width: 55%;
+    float: right;
+    padding: 150px;
+    background-color: #fdfdfd;
+}

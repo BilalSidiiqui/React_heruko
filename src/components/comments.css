@@ -1,0 +1,14 @@
+.comment{
+
+    color: white;
+    
+    background-color: gray;
+    height: 25px;
+    margin: 10px auto;
+    border-radius: 2px; 
+
+}
+
+.comment text{
+    padding: 10px;
+}

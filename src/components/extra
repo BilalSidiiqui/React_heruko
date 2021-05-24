@@ -1,0 +1,143 @@
+import React,{useState} from 'react'
+import FOOTER from './footer';
+import DatePicker from 'react-date-picker';
+import Calendar from 'react-calendar'
+import userServices from "../Services/UserServices";
+import 'react-datepicker/dist/react-datepicker-cssmodules.min.css'
+import moment from 'moment';
+import './OpStyle.css'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function Seller() {
+    console.log(localStorage.getItem("user_id"))
+
+    const [title,settitle]=React.useState();
+    const [description,setdescription]=React.useState();
+   const[image,setimage]=React.useState();
+   const [category,setcategory]=useState("T");
+  const[startPrice,setstartPrice]=React.useState();
+  const [end_date, setend_date] = useState(new Date());
+  
+
+ 
+
+    return (
+        <div className="App" style={{backgroundColor:"#fff"}}>
+             <div className="Main" style={{height:'700'}}>
+        <div className='Outer' style={{backgroundImage: `url("https://images.unsplash.com/photo-1562619425-c307bb83bc42?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGRhcmslMjBibHVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80")` }}>
+        <div className='inner-container'
+        style={{display:"flex",
+        justifyContent: "center",
+        alignItems: "center",
+     
+        }}>
+        <div className="col">
+       <div>
+        <h1 style={{textAlign:'center', color:'	#000'}}>ADD NEW ARTWORK</h1>
+             <hr  style={{
+    color: '#7a7d85',
+    height: 0.5,
+    borderColor : '#000',
+    width:'78%',
+    
+}}/>
+<p style={{marginBottom:60}}>As an artist seller, you can post your artwork on sale by adding your artwork details and also set the bid closing time.</p>
+</div>
+<form>
+            <div className="form-group">
+               <input type="text" style={{marginLeft:100,width:300}} className="form-control" placeholder="PRODUCT TITLE" value={title} onChange={e=>{
+                        settitle(e.target.value)
+                    }}/>
+            </div>
+
+            <div className="form-group">
+            <textarea class="form-control"style={{marginLeft:100,width:300}} rows="5" placeholder="PRODUCT DESCRIPTION" id="ProductDescription" value={description} onChange={e=>{
+                        setdescription(e.target.value)
+                    }}></textarea>
+            </div>
+
+        
+            <div className="form-group">
+            <input type="number" name="Productbid"style={{marginLeft:100,width:300}} className="form-control" placeholder="STARTING PRICE" value={startPrice} onChange={e=>{
+                        setstartPrice(e.target.value)
+                    }} />
+            </div>
+
+            <div className="form-group">
+               <select className="custom-select" 
+               style={{marginRight:40,width:300}}
+               value={category} onChange={(e) =>{
+                  const selectedCategory=e.target.value;
+                  setcategory(selectedCategory)
+                  
+               }}>
+                   
+                  <option value="E">Landscapes</option>
+                  <option value="H">Surrealism</option>
+                  <option value="T">Abstract Art</option>  
+                  
+               </select>
+               </div>
+
+
+
+               <div className="form-group">
+
+            <input type="text" id="productimg" style={{marginLeft:100,width:300}} className="form-control" placeholder="ENTER IMAGE URL" name="img"  value={image} onChange={e=>{
+                        setimage(e.target.value)
+                    }}/> </div> 
+    <div style={{marginLeft:80}}>
+            <Calendar
+            
+                    selected={end_date}               
+                    minDate={new Date()}
+                    onChange={date=> setend_date(date)}
+                    
+                />    
+</div>
+            <button style={{marginTop:30,width:140,marginLeft:180}} type="submit" className="btn btn-primary btn-block" onClick={e=>{
+                if(title.length<2){
+                    alert("Title must be more than 3 letter word")
+                }
+               else if(description.length<100){
+                    alert("Description must contain more than 100 letters")
+                }
+                
+                else if(startPrice<5){
+                    alert("Starting price should be greater than $5")
+                }
+                else if(title==null ){
+                    alert("Fill the info First")
+                }
+                else{
+                    var created_by = localStorage.getItem("user_id")
+                    var start_price= parseInt(startPrice)
+                    userServices.addProduct(title,description,image,category,start_price,created_by,end_date).then((data)=>{
+                        console.log(data)
+                        alert("Product has been added Successfully")
+                        window.location="/"
+                    }).catch(err=>{
+                    alert("Login First!")
+                    window.location='/login'
+                    })
+                   
+                }}}>ADD PRODUCT</button>
+           
+             
+        </form>
+        </div>
+       </div>
+       </div>
+       
+
+        </div>
+        <br/>
+        
+        <FOOTER/>
+        <ToastContainer />
+        </div>
+    )
+}
+export default Seller;
