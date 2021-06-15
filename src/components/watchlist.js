@@ -19,12 +19,12 @@ class watchlist extends React.Component {
 Loginid=localStorage.getItem("user_id");
 
   componentDidMount(){
-  fetch(`http://127.0.0.1:8000/Watchlist/?user=${this.Loginid}`).then((resp)=> {
+  fetch(`https://artmandibackend.herokuapp.com/Watchlist/?user=${this.Loginid}`).then((resp)=> {
     resp.json().then((result) => {
       this.setState({products:result})
    let array=  result.map( e => e.listing)
    console.log(array)
-fetch("http://127.0.0.1:8000/Listing/").then((response)=>{
+fetch("https://artmandibackend.herokuapp.com/Listing/").then((response)=>{
   response.json().then((listing)=>{
     let array2= listing.filter( e => array.includes(e.id))
     let array3=array2.filter(e => e.completed===false)
@@ -49,7 +49,7 @@ fetch("http://127.0.0.1:8000/Listing/").then((response)=>{
 
     <div style={{width:550}} >
       <div className="mu-hero-left">
-      <text style={{fontStyle:'italic'}}>Please read this Customer Support carefully to understand how users can ask their quries. Our cutomer support team is available 24/7. Send your query emails at the email account provided below.</text>
+      <text style={{fontStyle:'italic',color:'grey',fontWeight:2,fontSize:40,paddingLeft:30}}>"A Heaven for Artists where they can sell and buy desired Artworks."</text>
       
       </div>
     </div>
@@ -143,7 +143,7 @@ fetch("http://127.0.0.1:8000/Listing/").then((response)=>{
         <Card.Img variant="top" src={item.image} style={{height:200}} /></Link>
           <Card.Body>
           <Card.Title > Title : {item.title}</Card.Title>
-          <Card.Text ><text style={{fontWeight:'bold'}}>Description :</text> {item.description}</Card.Text>
+          <Card.Text ><text style={{fontWeight:'bold'}}>Artist :</text> {item.artist}</Card.Text>
             <Card.Text><text style={{fontWeight:'bold'}}>STARTING PRICE : </text>${item.start_price}</Card.Text>
             <Link to={`/PRODUCT/${item.id}`}>  <Button variant="primary" type="submit" className="btn btn-primary btn-block">BUY NOW</Button>
 </Link>            </Card.Body>

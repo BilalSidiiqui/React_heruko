@@ -18,7 +18,7 @@ import {RiHandCoinFill} from 'react-icons/ri';
 
 				<div style={{width:550}} >
 					<div className="mu-hero-left">
-          <text style={{fontStyle:'italic'}}>Please read this Customer Support carefully to understand how users can ask their quries. Our cutomer support team is available 24/7. Send your query emails at the email account provided below.</text>
+          <text style={{fontStyle:'italic',color:'grey',fontWeight:2,fontSize:40,paddingLeft:30}}>"A Heaven for Artists where they can sell and buy desired Artworks."</text>
 
 					
 					</div>

@@ -16,7 +16,7 @@ const [comment,setcomment]=React.useState([]);
 
 var {id} = useParams()  
 
-const url=`http://127.0.0.1:8000/Listing/${id}/`;
+const url=`https://artmandibackend.herokuapp.com/Listing/${id}/`;
 
 
 const [product,setproduct] =useState(null);

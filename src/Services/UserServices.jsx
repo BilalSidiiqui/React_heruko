@@ -41,14 +41,8 @@ class UserServices extends GenericServices {
       listing,
     });
 
-  paymentgateway = (email, payment_method_id) =>
-    this.post("/save-stripe-info/", {
-      email,
-      payment_method_id,
-    }).then((resp) => {
-      localStorage.setItem("message", resp.message);
-      localStorage.setItem("data", resp.data);
-    });
+  paymentgateway = (data={}) =>
+    this.post("/save-stripe-info/", data);
 
   closeBid = (listing) =>
     this.post("/closebid/", {

@@ -8,15 +8,16 @@ import {loadStripe} from "@stripe/stripe-js/pure";
 import CheckoutForm from "./CheckoutForm";
 import Table from 'react-bootstrap/Table'
 
-const stripePromise = loadStripe('pk_test_');
+const stripePromise = loadStripe('pk_test_51Is5oDBokRZBbAhwWIBQE1IEAKLvOPG4cpZl2UW3RzjVKPNq1NI4ZVd8vut1IOd7taWARe049AsomCoyfEgVajrp005CMzVMFt');
 
  function Aftersold() {
   
 
 var {id} = useParams()  
-const url=`http://127.0.0.1:8000/Listing/${id}/`;
+const url=`https://artmandibackend.herokuapp.com/Listing/${id}/`;
 
 const [Aftersold,setAftersold] =useState(null);
+
 
 
 let content=null;
@@ -27,6 +28,7 @@ useEffect(()=>{
     setAftersold(response.data)
   })
 }, [url])
+
 
 if(Aftersold){
   content=
@@ -58,7 +60,8 @@ if(Aftersold){
     </tbody>
      </Table>
      <Elements stripe={stripePromise}>
-    <CheckoutForm />
+    <CheckoutForm winprice={Aftersold.winner_bidprice}
+      id={id}/>
   </Elements>
      </div>
      </div>

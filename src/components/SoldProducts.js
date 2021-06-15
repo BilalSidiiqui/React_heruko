@@ -1,7 +1,7 @@
 import React ,{ useState, useEffect} from 'react'
 import axios from 'axios';
 import FOOTER from './footer'
-import { Form,FormControl,Button,Card,} from 'react-bootstrap';
+import { Card,} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Carousel} from 'react-bootstrap';
 
@@ -9,7 +9,7 @@ function SoldProducts() {
 
     const[soldproduct,setsoldproduct]=useState([]);
 
-    const url='http://127.0.0.1:8000/Listing/'
+    const url='https://artmandibackend.herokuapp.com/Listing/'
 
     useEffect(()=>{
         axios.get(url)
@@ -20,7 +20,7 @@ function SoldProducts() {
       }, [])
 
      
-      let array=soldproduct.filter(e => e.completed===true && e.winner_username===localStorage.getItem('username'))
+      let array=soldproduct.filter(e => e.completed===true && e.paid===false && e.winner_username===localStorage.getItem('username'))
 console.log(array);
 
 
@@ -32,7 +32,7 @@ console.log(array);
 
 				<div style={{width:550}} >
 					<div className="mu-hero-left">
-						<text style={{fontStyle:'italic'}}>Please read this Customer Support carefully to understand how users can ask their quries. Our cutomer support team is available 24/7. Send your query emails at the email account provided below.</text>
+          <text style={{fontStyle:'italic',color:'grey',fontWeight:2,fontSize:40,paddingLeft:30}}>"A Heaven for Artists where they can sell and buy desired Artworks."</text>
 					
 					</div>
 				</div>
@@ -123,7 +123,7 @@ console.log(array);
            <Card.Img variant="top" src={item.image} style={{height:200}} /></Link>
              <Card.Body>
              <Card.Title > Title : {item.title}</Card.Title>
-             <Card.Text ><text style={{fontWeight:'bold'}}>Description :</text> {item.description}</Card.Text>
+             <Card.Text ><text style={{fontWeight:'bold'}}>ARTIST :</text> {item.artist}</Card.Text>
                <Card.Text><text style={{fontWeight:'bold'}}>STARTING PRICE : </text>${item.start_price}</Card.Text>
              <Card.Text><text style={{fontWeight:'bolder',fontSize:30}}>PRODUCT SOLD </text></Card.Text>
 

@@ -98,9 +98,9 @@ const Login = () => {
                     });
                     window.location = "/";
                   })
-                  .catch((error) => {
+                  .catch((data) => {
                     console.log("hajsd");
-                    toast.error("User not found", {
+                    toast.error(data.message, {
                       position: "top-center",
                     });
                   });

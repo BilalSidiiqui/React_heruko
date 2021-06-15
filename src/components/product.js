@@ -27,7 +27,7 @@ function Product() {
   };
 
   var { id } = useParams();
-  const url = `http://127.0.0.1:8000/Listing/${id}/`;
+  const url = `https://artmandibackend.herokuapp.com/Listing/${id}/`;
 
   const [product, setproduct] = useState(null);
   let content = null;
@@ -59,28 +59,48 @@ function Product() {
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>Created By</th>
+                  <th>Artist</th>
                   <th>Price</th>
-                  <th>Description</th>
+                  <th>X-Dimension</th>
+                  <th>Y-Dimension</th>
                 </tr>
+
               </thead>
               <tbody>
                 <tr>
-                  <td style={{ width: 120 }}>{product.created_by}</td>
+                  <td style={{ width: 120 }}>{product.artist}</td>
                   <td style={{ width: 80 }}>${product.start_price}</td>
 
-                  <td>{product.description}</td>
+                  <td>{product.length} inches</td>
+                  <td>{product.width} inches</td>
                 </tr>
               </tbody>
+            
+
             </Table>
-            <Timer id={id} />
+            <Table striped bordered hover>
+            <thead>
+                
+                <tr>
+                    <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{product.description}</td></tr>
+
+                </tbody>
+            </Table>
+          
+          <div style={{backgroundColor:'#DCDCDC',borderWidth:10,borderColor:'brown' ,paddingTop:15,paddingBottom:15}}>  <Timer id={id} /></div>
 
             <div className="form-group">
               
-<button type="submit" className="btn btn-primary btn-block"  onClick={e=>{
+{/* <button type="submit" className="btn btn-primary btn-block"  onClick={e=>{
                 
                     var listing = id
                     userServices.closeBid(listing).then((data)=>{
+                      alert("Product has been sold!")
                         window.location.href="/SoldProducts"
                     
                     }).catch(err=>{
@@ -88,7 +108,7 @@ function Product() {
                     
                     })
                    
-                }}>Close Bid</button>
+                }}>Close Bid</button> */}
 
               {localStorage.getItem("user_id") != product.created_by && (
                 <form>

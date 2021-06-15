@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/";
+axios.defaults.baseURL = "https://artmandibackend.herokuapp.com/";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =

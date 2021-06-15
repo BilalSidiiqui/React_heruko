@@ -21,7 +21,7 @@ class bids extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://127.0.0.1:8000/Bid/?listing=${this.props.id}`).then(
+    fetch(`https://artmandibackend.herokuapp.com/Bid/?listing=${this.props.id}`).then(
       (resp) => {
         resp.json().then((result) => {
           let bidPrizes = result.map(e => e.bid_price)

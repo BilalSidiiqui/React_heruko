@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form,FormControl,Button,Card,} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import Footer from './footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
  class buyer extends React.Component {
 
@@ -17,11 +17,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   }
 
 componentDidMount(){
-fetch('http://127.0.0.1:8000/Listing/').then((resp)=> {
+fetch('https://artmandibackend.herokuapp.com/Listing/').then((resp)=> {
   resp.json().then((result) => {
     let array=result.filter(e => e.completed===false)
-
-    this.setState({products:array})
+    let listing = array.map(e => e.id)
+    let pro = array.sort(function(a, b){
+      return b.id - a.id
+      });
+    this.setState({products:pro})
     
   })
 })
@@ -72,7 +75,7 @@ this.state.products.slice(0,this.state.visible).map((item)=>
  <Link to={`/PRODUCT/${item.id}`}> <Card.Img variant="top" src={item.image} style={{height:200}} /></Link>
   <Card.Body>
   <Card.Title > Title : {item.title}</Card.Title>
-  <Card.Text ><text style={{fontWeight:'bold'}}>Description :</text> {item.description}</Card.Text>
+  <Card.Text ><text style={{fontWeight:'bold'}}>Artist :</text> {item.artist}</Card.Text>
     <Card.Text><text style={{fontWeight:'bold'}}>STARTING PRICE : </text>${item.start_price}</Card.Text>
 
     <Link to={`/PRODUCT/${item.id}`}>   <Button variant="primary" type="submit" className="btn btn-primary btn-block">BUY NOW</Button>
@@ -101,7 +104,6 @@ this.state.products.slice(0,this.state.visible).map((item)=>
      
 
      </div>
-  
      </div>
     );
     }

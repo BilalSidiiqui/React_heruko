@@ -14,6 +14,8 @@ function Seller() {
     const [title,settitle]=React.useState();
     const [description,setdescription]=React.useState();
    const[image,setimage]=React.useState(null);
+      const [length,setlength]=React.useState();
+   const [width,setwidth]=React.useState();
    const [category,setcategory]=useState("T");
   const[startPrice,setstartPrice]=React.useState();
   const [end_date, setend_date] = useState(new Date());
@@ -31,6 +33,8 @@ const handleSubmit=(e)=>{
   data.append('description',description);
                     data.append('image',image);
                     data.append('category',category);
+                    data.append('length',length);
+                    data.append('width',width);
                     data.append('start_price',start_price);
                     data.append('created_by',created_by);
                     data.append('end_date',end);
@@ -50,8 +54,8 @@ const handleSubmit=(e)=>{
                        }
                        else{
                     const res = auth.addProduct(data)
-                    toast.success("Product has been added Successfully")
-                    window.location.href='./Buyer'
+                    toast.success("Product will be added in 1 minute!Thank you")
+                    window.location.href='./'
                     console.log(res)}
                    } catch (error) {
                        console.log("err is", error)
@@ -104,7 +108,19 @@ width:'78%',
                         setstartPrice(e.target.value)
                     }} />
             </div>
-
+            <div className='row'>
+            <div style={{marginLeft:15,marginRight:80}} className="form-group">
+            <input style={{width:150}} type="number" name="Length" className="form-control" placeholder="LENGTH" value={length} onChange={e=>{
+                        setlength(e.target.value)
+                    }} />
+            </div>
+            <div className="form-group">
+            <input  style={{width:150}} type="number" name="Width" className="form-control" placeholder="WIDTH" value={width} onChange={e=>{
+                        setwidth(e.target.value)
+                    }} />
+            </div>
+            </div>
+ 
             <div className="form-group">
                <select className="custom-select" 
                value={category} onChange={(e) =>{
@@ -130,6 +146,7 @@ width:'78%',
             <Calendar
                     selected={end_date}               
                     onChange={date=> setend_date(date)}
+                    minDate={new Date(Date.now()+86400000)}
                    
                     
                 />    

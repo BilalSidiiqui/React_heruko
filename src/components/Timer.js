@@ -10,7 +10,7 @@ const[timerhours,settimerhours]=useState('00');
 const[timerminutes,settimerminutes]=useState('00');
 const[timerseconds,settimerseconds]=useState('00');
 var {id} = useParams()  
-const url=`http://127.0.0.1:8000/Listing/${id}/`;
+const url=`https://artmandibackend.herokuapp.com/Listing/${id}/`;
 
 
 const [product,setproduct] =useState('00');
@@ -42,7 +42,8 @@ const Starttimer=()=>{
       clearInterval(interval.current);
       var listing = id
       userServices.closeBid(listing).then((data)=>{
-          window.location.href="/SOLD"
+        alert("Product has been sold!")
+        window.location.href="/SoldProducts"
         })
     }
     else
