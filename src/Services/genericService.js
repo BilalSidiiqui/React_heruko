@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-axios.defaults.baseURL="https://artmandibackend.herokuapp.com/"
+axios.defaults.baseURL="https://artmandi.herokuapp.com/"
 
 class GenericService{
 

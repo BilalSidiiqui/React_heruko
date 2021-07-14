@@ -17,7 +17,7 @@ class landscape extends React.Component {
       }
     
     componentDidMount(){
-    fetch('http://127.0.0.1:8000/Listing/').then((resp)=> {
+    fetch('https://artmandi.herokuapp.com/Listing/').then((resp)=> {
       resp.json().then((result) => {
         let array=result.filter(e => e.completed===false)
         let array2=array.filter(e=>e.category==="E")

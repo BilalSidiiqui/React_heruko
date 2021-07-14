@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   }
 
 componentDidMount(){
-fetch('https://artmandibackend.herokuapp.com/Listing/').then((resp)=> {
+fetch('https://artmandi.herokuapp.com/Listing/').then((resp)=> {
   resp.json().then((result) => {
     let array=result.filter(e => e.completed===false)
     let listing = array.map(e => e.id)

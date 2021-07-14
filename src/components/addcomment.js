@@ -31,7 +31,7 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  const listurl=`http://127.0.0.1:8000/Comment/?listing=${id}`;
+  const listurl=`https://artmandi.herokuapp.com/Comment/?listing=${id}`;
   fetch(listurl).then(resp=>resp.json()).
   then(resp=>setcomment(resp))
 })

@@ -27,7 +27,7 @@ function Product() {
   };
 
   var { id } = useParams();
-  const url = `https://artmandibackend.herokuapp.com/Listing/${id}/`;
+  const url = `https://artmandi.herokuapp.com/Listing/${id}/`;
 
   const [product, setproduct] = useState(null);
   let content = null;
@@ -96,7 +96,7 @@ function Product() {
 
             <div className="form-group">
               
-{/* <button type="submit" className="btn btn-primary btn-block"  onClick={e=>{
+<button type="submit" className="btn btn-primary btn-block"  onClick={e=>{
                 
                     var listing = id
                     userServices.closeBid(listing).then((data)=>{
@@ -108,7 +108,7 @@ function Product() {
                     
                     })
                    
-                }}>Close Bid</button> */}
+                }}>Close Bid</button>
 
               {localStorage.getItem("user_id") != product.created_by && (
                 <form>

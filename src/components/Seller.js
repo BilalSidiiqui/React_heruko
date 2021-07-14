@@ -43,19 +43,13 @@ const handleSubmit=(e)=>{
                        if(title.length<2){
                            toast.error("Title should not that short")
                        }
-                    //    else if(description.length<50){
-                    //        toast.error("Description should be Long enough to explain artwork!")
-                    //    }
-                    //    else if(description.length>50){
-                    //     toast.error("Description should be Long enough to explain artwork!")
-                    // }
                         else if(startPrice<5){
                            toast.error("Price should not be too low, It should be 5 minimum!")
                        }
                        else{
                     const res = auth.addProduct(data)
-                    toast.success("Product will be added in 1 minute!Thank you")
-                    window.location.href='./'
+                    toast.success("Product will be added within a minute!Thank you")
+                    // window.location.href='./'
                     console.log(res)}
                    } catch (error) {
                        console.log("err is", error)

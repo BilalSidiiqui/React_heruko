@@ -19,12 +19,12 @@ class watchlist extends React.Component {
 Loginid=localStorage.getItem("user_id");
 
   componentDidMount(){
-  fetch(`https://artmandibackend.herokuapp.com/Watchlist/?user=${this.Loginid}`).then((resp)=> {
+  fetch(`https://artmandi.herokuapp.com/Watchlist/?user=${this.Loginid}`).then((resp)=> {
     resp.json().then((result) => {
       this.setState({products:result})
    let array=  result.map( e => e.listing)
    console.log(array)
-fetch("https://artmandibackend.herokuapp.com/Listing/").then((response)=>{
+fetch("https://artmandi.herokuapp.com/Listing/").then((response)=>{
   response.json().then((listing)=>{
     let array2= listing.filter( e => array.includes(e.id))
     let array3=array2.filter(e => e.completed===false)

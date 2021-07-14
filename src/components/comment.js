@@ -20,7 +20,7 @@ import './comments.css'
   }
 
 componentDidMount(){
-fetch(`https://artmandibackend.herokuapp.com/Comment/?listing=${this.props.id}`).then((resp)=> {
+fetch(`https://artmandi.herokuapp.com/Comment/?listing=${this.props.id}`).then((resp)=> {
   resp.json().then((result) => {
     // console.warn (result.data)
     this.setState({comment:result}

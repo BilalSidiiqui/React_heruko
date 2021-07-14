@@ -9,7 +9,7 @@ function SoldProducts() {
 
     const[soldproduct,setsoldproduct]=useState([]);
 
-    const url='https://artmandibackend.herokuapp.com/Listing/'
+    const url='https://artmandi.herokuapp.com/Listing/'
 
     useEffect(()=>{
         axios.get(url)

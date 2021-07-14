@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51Is5oDBokRZBbAhwWIBQE1IEAKLvOPG4cpZl2
   
 
 var {id} = useParams()  
-const url=`https://artmandibackend.herokuapp.com/Listing/${id}/`;
+const url=`https://artmandi.herokuapp.com/Listing/${id}/`;
 
 const [Aftersold,setAftersold] =useState(null);
 

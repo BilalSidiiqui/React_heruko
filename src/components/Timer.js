@@ -10,7 +10,7 @@ const[timerhours,settimerhours]=useState('00');
 const[timerminutes,settimerminutes]=useState('00');
 const[timerseconds,settimerseconds]=useState('00');
 var {id} = useParams()  
-const url=`https://artmandibackend.herokuapp.com/Listing/${id}/`;
+const url=`https://artmandi.herokuapp.com/Listing/${id}/`;
 
 
 const [product,setproduct] =useState('00');
