@@ -149,7 +149,7 @@ import {RiHandCoinFill} from 'react-icons/ri';
 
 <div style={{marginLeft:170}} className='col-3'>
 <div style={{marginBottom:15,marginTop:15}}>  <img
-src="https://i.ibb.co/mG21tcV/haris.jpg"
+src="https://i.ibb.co/X54B7C4/Whats-App-Image-2021-07-15-at-10-11-16-AM.jpg"
 /></div>
 <text style={{fontWeight:'bold',fontSize:25}}>Haris Imran </text>
 <div><text style={{fontSize:15,color:'grey'}}>Team Leader</text></div>
@@ -158,7 +158,7 @@ src="https://i.ibb.co/mG21tcV/haris.jpg"
 
 <div className='col-3'>
 <div style={{marginBottom:15,marginTop:15}}>  <img
-src="https://i.ibb.co/FX6Tdgv/zaid.jpg"
+src="https://i.ibb.co/LzRHYtG/Whats-App-Image-2021-07-15-at-10-11-38-AM.jpg"
 /></div>
 <text style={{fontWeight:'bold',fontSize:25}}>Zaid Nadeem</text>
 <div><text style={{fontSize:15,color:'grey'}}>Server Side Developer</text></div>
@@ -166,7 +166,7 @@ src="https://i.ibb.co/FX6Tdgv/zaid.jpg"
 
 <div className='col-3'>
 <div style={{marginBottom:15,marginTop:15}}>  <img
-src="https://i.ibb.co/L00FBwV/bilal.jpg"
+src="https://i.ibb.co/tmJ4jjL/Whats-App-Image-2021-06-22-at-11-12-31-PM.jpg"
 /></div>
 <text style={{fontWeight:'bold',fontSize:25}}>Bilal Siddiqui</text>
 <div>
